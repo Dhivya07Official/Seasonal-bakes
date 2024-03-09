@@ -1,33 +1,33 @@
-import { firebase, auth, db } from "../config/firebase";
+// import { firebase, auth, db } from "../config/firebase";
 
-function addFavorite(id) {
-  const currentUser = auth.currentUser.uid;
+// function addFavorite(id) {
+//   const currentUser = auth.currentUser.uid;
 
-  return db
-    .collection("Users")
-    .doc(currentUser)
-    .update({
-      favorites: firebase.firestore.FieldValue.arrayUnion(id),
-    });
-}
+//   return db
+//     .collection("Users")
+//     .doc(currentUser)
+//     .update({
+//       favorites: firebase.firestore.FieldValue.arrayUnion(id),
+//     });
+// }
 
-function removeFavorite(id) {
-  const currentUser = auth.currentUser.uid;
+// function removeFavorite(id) {
+//   const currentUser = auth.currentUser.uid;
 
-  return db
-    .collection("Users")
-    .doc(currentUser)
-    .update({
-      favorites: firebase.firestore.FieldValue.arrayRemove(id),
-    });
-}
+//   return db
+//     .collection("Users")
+//     .doc(currentUser)
+//     .update({
+//       favorites: firebase.firestore.FieldValue.arrayRemove(id),
+//     });
+// }
 
-function addToCart(newCart) {
-  const currentUser = auth.currentUser.uid;
+// function addToCart(newCart) {
+//   const currentUser = auth.currentUser.uid;
 
-  return db.collection("Users").doc(currentUser).update({
-    cart: newCart,
-  });
-}
+//   return db.collection("Users").doc(currentUser).update({
+//     cart: newCart,
+//   });
+// }
 
-export { addFavorite, removeFavorite, addToCart };
+// export { addFavorite, removeFavorite, addToCart };

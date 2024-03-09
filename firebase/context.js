@@ -1,6 +1,6 @@
 import React, { useState, useEffect, useContext, createContext } from "react";
 import { firebase, auth, db } from "../config/firebase";
-
+import { getUser } from "pages/api/users";
 const authContext = createContext();
 export function AuthProvider({ children }) {
   const auth = useProvideAuth();
@@ -16,15 +16,18 @@ function useProvideAuth() {
 
   const getCurrentUser = () => {
     auth.currentUser?.uid
-      ? db
-          .collection("Users")
-          .doc(auth.currentUser.uid)
-          .get()
-          .then((doc) => {
-            setUser(doc.data());
-            setLoading(false);
-          })
+      ? getUser(auth.currentUser.uid)
+        // db
+        //     .collection("Users")
+        //     .doc(auth.currentUser.uid)
+        //     .get()
+        .then((res) => {
+          res.data.id = res.data._id;
+          setUser(res.data);
+          setLoading(false);
+        })
       : setLoading(false);
+      
   };
 
   useEffect(() => {
