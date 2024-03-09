@@ -1,65 +1,42 @@
 import Head from "next/head";
-
-import styles from "./category.module.scss";
-
 import Layout from "components/Layout";
 import { useAuth } from "@/firebase/context";
-import { db } from "@/config/firebase";
 import Button from "@/components/FilterButton";
 import ProductCard from "@/components/ProductCard/product-card";
+import styles from "./category.module.scss";
+import { getAllItems } from "../api/items"
 
-const getEmoji = {
+const emojiMap = {
   cakes: "🍰",
   brownies: "🍪",
   pastries: "🧁",
-  // activewear: "🤸",
-  // gifts_and_living: "🎁",
-  // inspiration: "💎",
 };
 
-export default function Category({ data, query }) {
+export default function Category({ productsData, query }) {
   const { user, loading } = useAuth();
-  if (data.length == 0) {
-    data = [
-      {
-        "id": "1",
-        "brand": "Brand A",
-        "product_name": "Product A",
-        "cover_photo": "https://images.unsplash.com/photo-1636743715220-d8f8dd900b87",
-        "price": "100.00",
-        "sale_price": "80.00"
-      },
-      {
-        "id": "2",
-        "brand": "Brand B",
-        "product_name": "Product B",
-        "cover_photo": "https://images.unsplash.com/photo-1636743715220-d8f8dd900b87",
-        "price": "150.00",
-        "sale_price": "120.00"
-      }
-    ]
-  }
 
-  console.log(user, loading);
+  let displayedProducts = productsData.length === 0 ? defaultProducts : productsData;
 
-  const formattedName =
+  console.log({ user, loading });
+
+  const categoryName =
     query.category === "gifts_and_living"
       ? "Gifts & Living"
-      : query.category[0].toUpperCase() + query.category.slice(1);
+      : `${query.category[0].toUpperCase()}${query.category.slice(1)}`;
 
   return (
     <Layout>
       <div className={styles.container}>
         <Head>
-          <title>Create Next App</title>
+          <title>Seasonal bakes</title>
           <link rel="icon" href="/favicon.ico" />
         </Head>
 
         <main className={styles.main}>
           <div className={styles.header}>
             <h1 className={styles.title}>
-              <span className={styles.emoji}>{getEmoji[query.category]}</span>
-              {formattedName}
+              <span className={styles.emoji}>{emojiMap[query.category]}</span>
+              {categoryName}
             </h1>
             <div className={styles.headerButtons}>
               <Button type="sort" style={{ marginRight: 20 }} />
@@ -68,20 +45,13 @@ export default function Category({ data, query }) {
           </div>
           <div className={styles.products}>
             {!loading &&
-              data.map((product) => {
-                return (
-                  <ProductCard
-                    key={product.id}
-                    id={product.id}
-                    brand={product.brand}
-                    name={product.product_name}
-                    image={product.cover_photo}
-                    price={product.price}
-                    sale_price={product.sale_price}
-                    favorite={user?.favorites?.includes(product.id)}
-                  />
-                );
-              })}
+              displayedProducts.map(product => (
+                <ProductCard
+                  key={product._id}
+                  {...product}
+                  favorite={user?.favorites?.includes(product._id)}
+                />
+              ))}
           </div>
         </main>
       </div>
@@ -89,25 +59,42 @@ export default function Category({ data, query }) {
   );
 }
 
-Category.getInitialProps = async function ({ query }) {
-  let data = {};
+Category.getInitialProps = async ({ query }) => {
+  let productsData = [];
   let error = {};
 
-  await db
-    .collection("Products")
-    .where("category", "==", query.category.toLowerCase())
-    .get()
-    .then(function (querySnapshot) {
-      const products = querySnapshot.docs.map(function (doc) {
-        return { id: doc.id, ...doc.data() };
-      });
-      data = products;
-    })
-    .catch((e) => (error = e));
+  try {
+    // const querySnapshot = await db
+    //   .collection("Products")
+    //   .where("category", "==", query.category.toLowerCase())
+    //   .get();
 
-  return {
-    data,
-    error,
-    query,
-  };
+    // productsData = querySnapshot.docs.map(doc => ({ id: doc.id, ...doc.data() }));
+    productsData = await getAllItems();
+    productsData = productsData.data.map(doc => ({ id: doc._id, ...doc }));
+    console.log(productsData);
+  } catch (e) {
+    error = e;
+  }
+
+  return { productsData, error, query };
 };
+
+const defaultProducts = [
+  {
+    id: "1",
+    brand: "Brand A",
+    product_name: "Product A",
+    cover_photo: "https://images.unsplash.com/photo-1636743715220-d8f8dd900b87",
+    price: "100.00",
+    sale_price: "80.00"
+  },
+  {
+    id: "2",
+    brand: "Brand B",
+    product_name: "Product B",
+    cover_photo: "https://images.unsplash.com/photo-1636743715220-d8f8dd900b87",
+    price: "150.00",
+    sale_price: "120.00"
+  }
+];

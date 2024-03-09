@@ -4,37 +4,44 @@ function updateUser({ email, name, surname, phoneNumber, photo, finalEvent }) {
   const currentUser = auth.currentUser.uid;
 
   if (photo) {
-    return firebase
-      .storage()
-      .ref("images/" + currentUser + (photo?.name || "0"))
-      .put(photo)
-      .then((doc) => {
-        doc.ref.getDownloadURL().then((url) => {
-          db.collection("Users")
-            .doc(currentUser)
-            .update({
-              name,
-              surname,
-              email,
-              phoneNumber: phoneNumber || "",
-              photoUrl: url,
-            })
-            .catch((e) => console.log(e))
-            .finally(() => finalEvent());
-        });
-      })
-      .catch((e) => console.log(e));
-  }
+    //   return firebase
+    //     .storage()
+    //     .ref("images/" + currentUser + (photo?.name || "0"))
+    //     .put(photo)
+    //     .then((doc) => {
+    //       doc.ref.getDownloadURL().then((url) => {
+    //         db.collection("Users")
+    //           .doc(currentUser)
+    //           .update({
+    //             name,
+    //             surname,
+    //             email,
+    //             phoneNumber: phoneNumber || "",
+    //             photoUrl: url,
+    //           })
+    //           .catch((e) => console.log(e))
+    //           .finally(() => finalEvent());
+    //       });
+    //     })
+    //     .catch((e) => console.log(e));
+    // }
 
-  return db
-    .collection("Users")
-    .doc(currentUser)
-    .update({
+    // return db
+    //   .collection("Users")
+    //   .doc(currentUser)
+    //   .update({
+    //     name,
+    //     surname,
+    //     email,
+    //     phoneNumber: phoneNumber || "", 
+    //   });
+    return updateUser({
       name,
       surname,
       email,
       phoneNumber: phoneNumber || "",
     });
+  }
 }
 
 function updatePassword({ currentPassword, newPassword }) {

@@ -10,12 +10,12 @@ import { useAuth } from "@/firebase/context";
 
 export default function ProductCard({
   bgColor,
-  id,
-  brand,
-  name,
+  _id,
+  category,
+  food_name,
   price,
   sale_price,
-  image,
+  cover_photo,
   favorite,
   ...props
 }) {
@@ -25,17 +25,17 @@ export default function ProductCard({
 
   const router = useRouter();
 
-  const removeEvent = (id) => {
-    removeFavorite(id);
+  const removeEvent = (_id) => {
+    removeFavorite(_id);
     setFavorite(false);
   };
-  const addEvent = (id) => {
-    addFavorite(id);
+  const addEvent = (_id) => {
+    addFavorite(_id);
     setFavorite(true);
   };
 
   const favoriteEvent = () => {
-    if (user && !loading) isFavorite ? removeEvent(id) : addEvent(id);
+    if (user && !loading) isFavorite ? removeEvent(_id) : addEvent(_id);
     else typeof window !== "undefined" && router.push("/login");
   };
 
@@ -43,7 +43,7 @@ export default function ProductCard({
     console.log(target);
     target?.localName !== "button" &&
       typeof window !== "undefined" &&
-      router.push(`/${id}`);
+      router.push(`/${_id}`);
   };
 
   return (
@@ -63,13 +63,13 @@ export default function ProductCard({
         )}
       </button>
       <div className={styles.imageContainer}>
-        {image && <img className={styles.image} src={image} loading="lazy" />}
+        {cover_photo && <img className={styles.image} src={cover_photo} loading="lazy" />}
       </div>
       <div className={styles.textContainer}>
-        <Link href={`/brand/${brand}`}>
-          <h4 className={styles.brandText}>{brand}</h4>
+        <Link href={`/brand/${food_name}`}>
+          <h4 className={styles.brandText}>{food_name}</h4>
         </Link>
-        <h4>{name}</h4>
+        <h4>{category}</h4>
         {sale_price ? (
           <div className={styles.priceContainer}>
             <div className={styles.discount}>

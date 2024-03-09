@@ -23,7 +23,8 @@ try {
 
 const app = firebase.app();
 const auth = firebase.auth();
-const db = firebase.firestore();
+// const db = firebase.firestore();
 
-export { firebase, auth, db };
+// export { firebase, auth, db };
+export { firebase, auth };
 console.log(app.name ? "Firebase Mode Activated!" : "Firebase not working :(");
