@@ -21,16 +21,16 @@ export default function Home() {
     {
       id: "2",
       bgColor: "#dec8f3",
-      title: "pastries",
+      title: "Velvet Dream",
       desc: "pastries",
-      image: "https://images.unsplash.com/photo-1636743715220-d8f8dd900b87",
+      image: "https://res.cloudinary.com/dpzml8rsg/image/upload/v1710135246/seasonal-bakes/michelle-tsang-1rqk6XVnw44-unsplash_ykajm3.jpg",
       show_type: "horizontal"
     },
     {
       id: "3",
       bgColor: "#f6f6f6",
-      name: "pastries",
-      image: "https://images.unsplash.com/photo-1636743715220-d8f8dd900b87",
+      name: "Raspberry Ripple Bliss",
+      image: "https://res.cloudinary.com/dpzml8rsg/image/upload/v1710135246/seasonal-bakes/american-heritage-chocolate-vdx5hPQhXFk-unsplash_eejgnz.jpg",
       price: "300",
       sale_price: "200",
       show_type: "vertical"
@@ -38,40 +38,40 @@ export default function Home() {
     {
       id: "4",
       bgColor: "#f6f6f6",
-      name: "pastries",
-      image: "https://images.unsplash.com/photo-1636743715220-d8f8dd900b87",
+      name: "Triple Chocolate Indulgence",
+      image: "https://res.cloudinary.com/dpzml8rsg/image/upload/v1710135246/seasonal-bakes/pushpak-dsilva-2UeBOL7UD34-unsplash_dk6oi7.jpg",
       price: "200",
       show_type: "vertical"
     },
     {
       id: "5",
       bgColor: "#FBE285",
-      title: "pastries",
+      title: "Fudgy Hazelnut Brownies",
       desc: "pastries",
-      image: "https://images.unsplash.com/photo-1636743715220-d8f8dd900b87",
+      image: "https://res.cloudinary.com/dpzml8rsg/image/upload/v1710135245/seasonal-bakes/will-echols-P_l1bJQpQF0-unsplash_e1wdtp.jpg",
       show_type: "horizontal"
     },
     {
       id: "6",
       bgColor: "#F9CADA",
-      title: "pastries",
+      title: "Salted Caramel Delight",
       desc: "pastries",
-      image: "https://images.unsplash.com/photo-1636743715220-d8f8dd900b87",
+      image: "https://res.cloudinary.com/dpzml8rsg/image/upload/v1710135245/seasonal-bakes/mateusz-d-N7IG3Tl3Oj0-unsplash_icis57.jpg",
       show_type: "horizontal"
     },
     {
       id: "7",
       bgColor: "#f6f6f6",
-      name: "pastries",
-      image: "https://images.unsplash.com/photo-1636743715220-d8f8dd900b87",
+      name: "Mint Chocolate Chunk Brownies",
+      image: "https://res.cloudinary.com/dpzml8rsg/image/upload/v1710132046/seasonal-bakes/jr-r-90HdOlGbjck-unsplash_nqj6il.jpg",
       price: "100",
       show_type: "vertical"
     },
     {
       id: "8",
       bgColor: "#f6f6f6",
-      name: "pastries",
-      image: "https://images.unsplash.com/photo-1636743715220-d8f8dd900b87",
+      name: "Espresso Infusion Brownies",
+      image: "https://res.cloudinary.com/dpzml8rsg/image/upload/v1710132044/seasonal-bakes/otto-norin-uG3Vu5TXKxE-unsplash_uytklz.jpg",
       price: "150",
       sale_price: "140",
       show_type: "vertical"
@@ -79,24 +79,24 @@ export default function Home() {
     {
       id: "9",
       bgColor: "#99E6B0",
-      title: "pastries",
+      title: "Lemon Zest",
       desc: "pastries",
-      image: "https://images.unsplash.com/photo-1636743715220-d8f8dd900b87",
+      image: "https://res.cloudinary.com/dpzml8rsg/image/upload/v1710132047/seasonal-bakes/mink-mingle-qZ5lPCPvdXE-unsplash_ugjash.jpg",
       show_type: "horizontal"
     },
     {
       id: "10",
       bgColor: "#f3e6c8",
-      title: "pastries",
+      title: "Almond Croissant Elegance",
       desc: "pastries",
-      image: "https://images.unsplash.com/photo-1636743715220-d8f8dd900b87",
+      image: "https://res.cloudinary.com/dpzml8rsg/image/upload/v1710132043/seasonal-bakes/heather-barnes-WbZesfqwR-A-unsplash_ccu1cv.jpg",
       show_type: "horizontal"
     },
     {
       id: "11",
       bgColor: "#f6f6f6",
-      name: "pastries",
-      image: "https://images.unsplash.com/photo-1636743715220-d8f8dd900b87",
+      name: "Berry Burst Tartlet",
+      image: "https://res.cloudinary.com/dpzml8rsg/image/upload/v1710132042/seasonal-bakes/kobby-mendez-w0_w3N_hG00-unsplash_koyckr.jpg",
       price: "150",
       sale_price: "120",
       show_type: "vertical"
@@ -104,8 +104,8 @@ export default function Home() {
     {
       id: "12",
       bgColor: "#f6f6f6",
-      name: "pastries",
-      image: "https://images.unsplash.com/photo-1636743715220-d8f8dd900b87",
+      name: "Pistachio Cream Puff Cascad",
+      image: "https://res.cloudinary.com/dpzml8rsg/image/upload/v1710132041/seasonal-bakes/yulia-khlebnikova-3-JVAA7wNOE-unsplash_atjxti.jpg",
       price: "150",
       sale_price: "120",
       show_type: "vertical"

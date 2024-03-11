@@ -30,9 +30,9 @@ export default function Product({ data, query }) {
 
     const {
         brand = '',
-        cover_photo = 'https://images.unsplash.com/photo-1636743715220-d8f8dd900b87',
+        cover_photo = 'https://res.cloudinary.com/dpzml8rsg/image/upload/v1710132042/seasonal-bakes/kobby-mendez-w0_w3N_hG00-unsplash_koyckr.jpg',
         information = 'No information',
-        photos = [cover_photo, 'https://images.unsplash.com/photo-1636743715220-d8f8dd900b87'],
+        photos = [cover_photo, 'https://res.cloudinary.com/dpzml8rsg/image/upload/v1710132047/seasonal-bakes/mink-mingle-qZ5lPCPvdXE-unsplash_ugjash.jpg'],
         price = 0,
         food_name,
         sale_price = 0,
