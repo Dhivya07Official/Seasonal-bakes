@@ -77,8 +77,10 @@ export default function Product({ data, query }) {
           productId: id,
           quantity: selectedSize,
         };
-
         addToCart(newCart);
+         setTimeout(() => {
+        router.reload();
+    }, 1000);
       }
       // if (sizes?.length === 0) {
       //   const newCart = {
