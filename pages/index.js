@@ -117,7 +117,7 @@ export default function Home() {
       <div className={styles.container}>
         <Head>
           <title>Seasonal bakes</title>
-          <link rel="icon" href="/favicon.ico" />
+          <link rel="icon" href="/favicon.jpeg" />
           <script src="https://static.elfsight.com/platform/platform.js" data-use-service-core defer></script>
         </Head>
         <div className="elfsight-app-4712f651-718e-442b-acaf-cbcb26de9482" data-elfsight-app-lazy></div>
