@@ -8,8 +8,9 @@ import { getAllItems } from "../api/items"
 
 const emojiMap = {
   cakes: "🍰",
-  brownies: "🍪",
-  pastries: "🧁",
+  cookies: "🍪",
+  brownies: "🧁",
+  pastries: "🥖",
 };
 
 export default function Category({ productsData, query }) {

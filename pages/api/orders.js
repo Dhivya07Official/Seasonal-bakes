@@ -1,9 +1,9 @@
-import axios from 'axios';
+import { createAxios } from './index';
 
 // Get Order
 export const getAllOrders = async () => {
     try {
-        const response = await axios.get(`/api/orders`);
+        const response = await createAxios().get(`/api/orders`);
         return response.data;
     } catch (error) {
         console.error('Error getting Order:', error);
@@ -13,7 +13,7 @@ export const getAllOrders = async () => {
 // Get Order by user id
 export const getAllOrdersByUserId = async (userId) => {
     try {
-        const response = await axios.get(`/api/orders/users/${userId}`);
+        const response = await createAxios().get(`/api/orders/users/${userId}`);
         return response.data;
     } catch (error) {
         console.error('Error getting Order:', error);
@@ -23,7 +23,7 @@ export const getAllOrdersByUserId = async (userId) => {
 // Get Order
 export const getOrders = async (orderId) => {
     try {
-        const response = await axios.get(`/api/orders/${orderId}`);
+        const response = await createAxios().get(`/api/orders/${orderId}`);
         return response.data;
     } catch (error) {
         console.error('Error getting Order:', error);
@@ -32,9 +32,19 @@ export const getOrders = async (orderId) => {
 };
 
 // Update Order
+export const createOrders = async (b2cId) => {
+    try {
+        const response = await createAxios().post(`/api/orders/user/${b2cId}`);
+        return response.data;
+    } catch (error) {
+        console.error('Error updating Order:', error);
+        throw error;
+    }
+};
+// Update Order
 export const updateOrders = async (orderId, orderData) => {
     try {
-        const response = await axios.put(`/api/orders/${orderId}`, orderData);
+        const response = await createAxios().put(`/api/orders/${orderId}`, orderData);
         return response.data;
     } catch (error) {
         console.error('Error updating Order:', error);
@@ -45,7 +55,7 @@ export const updateOrders = async (orderId, orderData) => {
 // Delete Order
 export const deleteOrders = async (orderId) => {
     try {
-        const response = await axios.delete(`/api/orders/${orderId}`);
+        const response = await createAxios().delete(`/api/orders/${orderId}`);
         return response.data;
     } catch (error) {
         console.error('Error deleting Order:', error);

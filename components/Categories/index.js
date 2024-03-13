@@ -24,10 +24,15 @@ export default function CategoriesBar() {
       <ul className={styles.categories}>
         <CategoryItem name="New In" emoji="⚡" link="/" />
         <CategoryItem name="cakes" emoji="🍰" link="/category/cakes" />
-        <CategoryItem name="brownies" emoji="🍪" link="/category/brownies" />
+        <CategoryItem name="cookies" emoji="🍪" link="/category/cookies" />
+        <CategoryItem
+          name="brownies"
+          emoji="🧁"
+          link="/category/brownies"
+        />
         <CategoryItem
           name="pastries"
-          emoji="🧁"
+          emoji="🥖"
           link="/category/pastries"
         />
         {/* <CategoryItem

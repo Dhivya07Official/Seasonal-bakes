@@ -2,7 +2,7 @@ import { createAxios, getActivePromotion } from './index';
 // Get user
 export const getUser = async (userId) => {
     try {
-        getActivePromotion()
+        // getActivePromotion()
         const response = await createAxios().get(`/api/users/b2cId/${userId}`);
         return response.data;
     } catch (error) {
@@ -39,6 +39,38 @@ export const deleteUser = async (userId) => {
         return response.data;
     } catch (error) {
         console.error('Error deleting user:', error);
+        throw error;
+    }
+};
+
+
+// Create user
+export const addToCartUser = async (cartData) => {
+    try {
+        const response = await createAxios().post(`/api/cart`, cartData);
+        return response.data;
+    } catch (error) {
+        console.error('Error updating user:', error);
+        throw error;
+    }
+};
+// Create user
+export const removeToCartUser = async (b2cId,id) => {
+    try {
+        const response = await createAxios().delete(`/api/cart/${b2cId}/item/${id}`);
+        return response.data;
+    } catch (error) {
+        console.error('Error updating user:', error);
+        throw error;
+    }
+};
+// Create user
+export const findcartLength = async (b2cId) => {
+    try {
+        const response = await createAxios().get(`/api/cart/${b2cId}/count`);
+        return response.data;
+    } catch (error) {
+        console.error('Error updating user:', error);
         throw error;
     }
 };

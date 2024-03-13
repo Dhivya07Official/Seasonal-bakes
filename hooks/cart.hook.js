@@ -1,6 +1,6 @@
 import { db, auth } from "@/config/firebase";
 import { useState, useEffect } from "react";
-
+import { findcartLength } from "../pages/api/users";
 const useCart = (id) => {
   const [data, setData] = useState([]);
   const [loading, setLoading] = useState(true);
@@ -8,13 +8,17 @@ const useCart = (id) => {
 
   useEffect(() => {
     async function fetchFromFirestore() {
-      auth.currentUser &&
-        db
-          .collection("Users")
-          .doc(auth.currentUser?.uid)
-          .onSnapshot(function (doc) {
-            setData(doc.data().cart);
-          });
+      if(auth.currentUser) {
+        const res = await findcartLength(auth.currentUser?.uid);
+        setData(res.data);
+      }
+        // db
+        //   .collection("Users")
+        //   .doc(auth.currentUser?.uid)
+        //   .onSnapshot(function (doc) {
+        //     setData(doc.data().cart);
+        //   });
+        
     }
 
     fetchFromFirestore();
