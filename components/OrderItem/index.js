@@ -5,62 +5,28 @@ import styles from "./order.module.scss";
 import { useAddress } from "hooks/address.hook";
 
 export default function OrderItem({ data }) {
-  const address = useAddress(data.address);
-  const { title, region, city, full_address, zipcode } = address.data;
-  console.log(new Date(data.date));
-  console.log(data.date);
+  // const address = useAddress(data.address);
+  // const { title, region, city, full_address, zipcode } = address.data;
+  console.log(data);
   return (
     <div className={styles.container}>
-      <div className={styles.header}>
-        <div>
-          <h4>Order date</h4>
-          <span>{format(data.date, "MM.dd.yyyy - HH:mm")}</span>
-        </div>
-        <div>
-          <h4>Order Summary</h4>
-          <span>{data.products.length} product</span>
-        </div>
-        <div>
-          <h4>Status</h4>
-          <span>{data.status}</span>
-        </div>
-        <div>
-          <h4>Price</h4>
-          <span>{data.total_price} $</span>
-        </div>
-      </div>
-      <hr />
-      <div className={styles.productPhotos}>
-        <img
-          className={styles.photo}
-          src="https://productimages.hepsiburada.net/s/34/120/10426321043506.jpg"
-          loading="lazy"
-        />
-        <img
-          className={styles.photo}
-          src="https://i.ibb.co/ZK2L8cg/kisspng-fashion-model-hugo-boss-pinpoint-resource-of-oklah-mens-fashion-5a78e637c1bde9-3434957015178.png"
-          loading="lazy"
-        />
-      </div>
-      <hr />
-      <div className={styles.addressContainer}>
-        <details>
-          <summary>Show Adress</summary>
-          {!address.loading && (
-            <>
-              <p>
-                <span className={styles.title}>Address Title: </span>
-                {title}
-              </p>
-              <p>{full_address}</p>
-              <p>
-                {city} / {zipcode}
-              </p>
-              <p>{region}</p>
-            </>
-          )}
-        </details>
-      </div>
+              <div style={{ border: '1px solid #ddd', padding: '20px', borderRadius: '10px', margin: '10px', width: '60vw', display: 'flex',  justifyContent:'space-between', marginRight:'5vw'}}>
+                <div className="" style={{marginRight:'40px'}}> 
+                  <h2>{data.product.food_name}</h2>
+                  <p>Category: {data.product.category}</p>
+                  <p>Price: <s>${data.product.price}</s> ${data.product.sale_price}</p>
+                  <p>Availability: {data.product.isAvailable ? 'Available' : 'Unavailable'}</p>
+                  <p>Quantity: {data.quantity ? data.quantity : 0}</p>
+                  {/* <p>Status: {data.status ?data.status : 'Pending'}</p> */}
+                  <div className={styles.buttons}>
+                    <button onClick={() =>{}}  style={{cursor:'pointer', width:'8vw',height:'40px',color:"white", backgroundColor:"green",marginTop:"5px"}}><p>Status: {data.status ?data.status : 'Pending'}</p></button>
+                  </div>
+                </div>
+                <div style={{ marginTop: '10px' }}>
+                  <img src={data.product.cover_photo} alt="Cover" width={250} height={250} />
+                </div>
+             </div>
+          
     </div>
   );
 }

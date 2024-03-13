@@ -8,14 +8,14 @@ const useProduct = (id) => {
 
   useEffect(() => {
     async function fetchFromFirestore() {
-      db.collection("Products")
-        .doc(id)
-        .get()
-        .then(function (doc) {
-          setData(doc.data());
-          setLoading(false);
-        })
-        .catch((e) => setError(e));
+      // db.collection("Products")
+      //   .doc(id)
+      //   .get()
+      //   .then(function (doc) {
+      //     setData(doc.data());
+      //     setLoading(false);
+      //   })
+      //   .catch((e) => setError(e));
     }
 
     fetchFromFirestore();
@@ -35,17 +35,17 @@ const useCategoryProducts = (category) => {
 
   useEffect(() => {
     async function fetchFromFirestore() {
-      db.collection("Products")
-        .where("category", "==", category)
-        .get()
-        .then(function (querySnapshot) {
-          const products = querySnapshot.docs.map(function (doc) {
-            return { id: doc.id, ...doc.data() };
-          });
-          setData(products);
-          setLoading(false);
-        })
-        .catch((e) => setError(e));
+      // db.collection("Products")
+      //   .where("category", "==", category)
+      //   .get()
+      //   .then(function (querySnapshot) {
+      //     const products = querySnapshot.docs.map(function (doc) {
+      //       return { id: doc.id, ...doc.data() };
+      //     });
+      //     setData(products);
+      //     setLoading(false);
+      //   })
+      //   .catch((e) => setError(e));
     }
 
     fetchFromFirestore();

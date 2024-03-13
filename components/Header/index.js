@@ -23,9 +23,9 @@ export default function Header() {
 
   const { user } = useAuth();
 
-  // const cart = useCart().data;
+  const cart = useCart().data;
   // const cartLength = Object.keys(cart).reduce((a, b) => a + cart[b].length, 0);
-  const cartLength = 0;
+  const cartLength = cart.length;
 
   return (
     <nav className={styles.container}>
