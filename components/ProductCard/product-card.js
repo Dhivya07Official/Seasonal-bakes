@@ -76,12 +76,12 @@ export default function ProductCard({
               {(((price - sale_price) / price) * 100) | 0}%
             </div>
             <div className={styles.prices}>
-              <span className={styles.priceText}>{price}</span>
-              <span className={styles.salePriceText}>{sale_price}</span>
+              <span className={styles.priceText}>Rs. {price}</span>
+              <span className={styles.salePriceText}>Rs. {sale_price}</span>
             </div>
           </div>
         ) : (
-          <span className={styles.price}>{price || 0}</span>
+          <span className={styles.price}>Rs. {price || 0}</span>
         )}
       </div>
     </div>

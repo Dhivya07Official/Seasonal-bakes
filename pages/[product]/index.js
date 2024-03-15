@@ -126,11 +126,11 @@ export default function Product({ data, query }) {
               <h1 className={styles.productTitle}>{food_name || ""}</h1>
               <Link href={`/food/${brand}`}>{brand || ""}</Link>
             </div>
-            <span className={styles.priceText}>{price || 0}</span>
+            <span className={styles.priceText}>Rs. {price || 0}</span>
             <div className={styles.saleContainer}>
-              <span className={styles.saleText}>{sale_price || 0}</span>
+              <span className={styles.saleText}>Rs. {sale_price || 0}</span>
               <span className={styles.savedText}>
-                {"(You will be saved " + (price - sale_price) + "!)"}
+                {"(You will be saved Rs. " +(price - sale_price) + "!)"}
               </span>
             </div>
             <hr />
