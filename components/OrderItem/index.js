@@ -14,7 +14,7 @@ export default function OrderItem({ data }) {
                 <div className="" style={{marginRight:'40px'}}> 
                   <h2>{data.product.food_name}</h2>
                   <p>Category: {data.product.category}</p>
-                  <p>Price: <s>${data.product.price}</s> ${data.product.sale_price}</p>
+                  <p>Price: <s>Rs. {data.product.price}</s> Rs.{data.product.sale_price}</p>
                   <p>Availability: {data.product.isAvailable ? 'Available' : 'Unavailable'}</p>
                   <p>Quantity: {data.quantity ? data.quantity : 0}</p>
                   {/* <p>Status: {data.status ?data.status : 'Pending'}</p> */}

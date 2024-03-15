@@ -106,7 +106,7 @@ export default function CartPage() {
                     ))}
                   </div> */}
              
-                  <p>Price: <s>${item.product.price}</s> ${item.product.sale_price}</p>
+                  <p>Price: <s>Rs. {item.product.price}</s> Rs. {item.product.sale_price}</p>
                   <p>Availability: {item.product.isAvailable ? 'Available' : 'Unavailable'}</p>
                   <p>Quantity: {item.quantity ? item.quantity : 0}</p>
                   <div className={styles.buttons}>
