@@ -22,15 +22,15 @@ export default function Home() {
       id: "2",
       bgColor: "#dec8f3",
       title: "Velvet Dream",
-      desc: "pastries",
-      image: "https://res.cloudinary.com/dpzml8rsg/image/upload/v1710135246/seasonal-bakes/michelle-tsang-1rqk6XVnw44-unsplash_ykajm3.jpg",
+      desc: "cake",
+      image: "https://res.cloudinary.com/dpzml8rsg/image/upload/v1710387304/seasonal-bakes/cakes/q651oav5hmc9bseijwaj.jpg",
       show_type: "horizontal"
     },
     {
       id: "3",
       bgColor: "#f6f6f6",
       name: "Raspberry Ripple Bliss",
-      image: "https://res.cloudinary.com/dpzml8rsg/image/upload/v1710135246/seasonal-bakes/american-heritage-chocolate-vdx5hPQhXFk-unsplash_eejgnz.jpg",
+      image: "https://res.cloudinary.com/dpzml8rsg/image/upload/v1710388550/seasonal-bakes/pastries/cwkvjmvmaprablcjnu8a.webp",
       price: "300",
       sale_price: "200",
       show_type: "vertical"
@@ -55,8 +55,8 @@ export default function Home() {
       id: "6",
       bgColor: "#F9CADA",
       title: "Salted Caramel Delight",
-      desc: "pastries",
-      image: "https://res.cloudinary.com/dpzml8rsg/image/upload/v1710135245/seasonal-bakes/mateusz-d-N7IG3Tl3Oj0-unsplash_icis57.jpg",
+      desc: "cookies",
+      image: "https://res.cloudinary.com/dpzml8rsg/image/upload/v1710388375/seasonal-bakes/cookies/cvpwlabsdehbwzf5gozj.jpg",
       show_type: "horizontal"
     },
     {
@@ -89,7 +89,7 @@ export default function Home() {
       bgColor: "#f3e6c8",
       title: "Almond Croissant Elegance",
       desc: "pastries",
-      image: "https://res.cloudinary.com/dpzml8rsg/image/upload/v1710132043/seasonal-bakes/heather-barnes-WbZesfqwR-A-unsplash_ccu1cv.jpg",
+      image: "https://res.cloudinary.com/dpzml8rsg/image/upload/v1710388506/seasonal-bakes/pastries/rfbvkey21bqozfqditp1.jpg",
       show_type: "horizontal"
     },
     {
@@ -126,10 +126,10 @@ export default function Home() {
             <h1 className={styles.title}>
               <span className={styles.emoji}>⚡</span>New In
             </h1>
-            <div className={styles.headerButtons}>
+            {/* <div className={styles.headerButtons}>
               <Button type="sort" style={{ marginRight: 20 }} />
               <Button count={0} />
-            </div>
+            </div> */}
           </div>
 
           <Products>

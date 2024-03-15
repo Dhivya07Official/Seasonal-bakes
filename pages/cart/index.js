@@ -41,6 +41,9 @@ export default function CartPage() {
   const removeCartItem = async (id) => {
     await removeToCart(id).then(() => {
       console.log("Item removed from cart");
+      setTimeout(() => {
+        router.reload();
+    }, 1000);
     }).catch((error) => {
       console.error("Error removing item from cart:", error);
     })
@@ -84,9 +87,11 @@ export default function CartPage() {
             <h1 className={styles.title}>My Cart</h1>
             <div className="" style={{display:'flex', justifyContent:'space-between', marginRight:'5vw'}}>
               <h4>You have {data?.items?.length || 0} items in your cart</h4>
-              <div className={styles.buttons}>
+              {data?.items?.length > 0 && (
+                <div className={styles.buttons}>
                 <button onClick={() => orderPage()}  style={{width:'10vw',height:'50px',color:"white", backgroundColor:"black"}}>Place Order</button>
               </div>
+              )}
             </div>
           </div>
           <div>
