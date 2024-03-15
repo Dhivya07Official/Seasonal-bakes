@@ -22,7 +22,7 @@ function useProvideAuth() {
         //     .doc(auth.currentUser.uid)
         //     .get()
         .then((res) => {
-          res.data.id = res.data._id;
+          res.data.id = res.data?._id;
           setUser(res.data);
           setLoading(false);
         })

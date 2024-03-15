@@ -39,10 +39,10 @@ export default function Category({ productsData, query }) {
               <span className={styles.emoji}>{emojiMap[query.category]}</span>
               {categoryName}
             </h1>
-            <div className={styles.headerButtons}>
+            {/* <div className={styles.headerButtons}>
               <Button type="sort" style={{ marginRight: 20 }} />
               <Button count={0} />
-            </div>
+            </div> */}
           </div>
           <div className={styles.products}>
             {!loading &&

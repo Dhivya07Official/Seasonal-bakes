@@ -26,10 +26,10 @@ export default function BrandPage({ data, query }) {
             <h1 className={styles.title}>
               Listing {data.length} products for "{query.brand}"
             </h1>
-            <div className={styles.headerButtons}>
+            {/* <div className={styles.headerButtons}>
               <Button type="sort" style={{ marginRight: 20 }} />
               <Button count={0} />
-            </div>
+            </div> */}
           </div>
           <div className={styles.products}>
             {!loading &&
